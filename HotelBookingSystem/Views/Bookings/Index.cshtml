@@ -1,0 +1,61 @@
+﻿@model IEnumerable<HotelBookingSystem.Models.Booking>
+
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<h1>Bookings</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Booking</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Check-In Date</th>
+            <th>Check-Out Date</th>
+            <th>User</th>
+            <th>Room Details</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <!-- CHECK-IN -->
+                <td>
+                    @item.CheckInDate.ToString("dd/MM/yyyy HH:mm")
+                </td>
+
+                <!-- CHECK-OUT -->
+                <td>
+                    @item.CheckOutDate.ToString("dd/MM/yyyy HH:mm")
+                </td>
+
+                <!-- USER -->
+                <td>
+                    @item.User?.Name
+                </td>
+
+                <!-- ROOM + PRICE + NIGHTS + TOTAL -->
+                <td>
+                    @item.Room?.RoomType (£@item.Room?.Price)
+                    <br />
+                    <span>@item.NumberOfNights night(s)</span>
+                    <br />
+                    <strong>Total: £@item.TotalPrice</strong>
+                </td>
+
+                <!-- ACTIONS -->
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BookingID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BookingID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BookingID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
