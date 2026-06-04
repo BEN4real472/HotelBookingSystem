@@ -34,4 +34,8 @@ This project is a web-based Hotel Booking System developed using ASP.NET Core MV
 
 ## Author
 
-Developed as part of coursework for Software Engineering (Level 6).
+Benjamin Ekereake Egoro  
+BSc (Hons) Software Engineering  
+Buckinghamshire New University  
+
+Developed as part of Level 5 coursework (Hotel Booking System – ASP.NET Core MVC).
